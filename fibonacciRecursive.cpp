@@ -1,5 +1,5 @@
 // David C Hernandez
-// Fibonacci Sequence
+// Fibonacci Sequence recursive form
 
 #include <iostream>
 using namespace std;
@@ -38,17 +38,7 @@ unsigned fibonacciNumber(unsigned nthTerm) {
     // determine if the value entered is 2 or less
     if (nthTerm <= 2) return recentTerms[nthTerm];
 
-    // iterate through terms to find nth term
-    for (unsigned term = 3; term <= nthTerm; ++term) {
-        // shift terms to the left
-        recentTerms[0] = recentTerms[1];
-        recentTerms[1] = recentTerms[2];
-
-        // calculate next sequence value
-        recentTerms[2] = recentTerms[0] + recentTerms[1];
-    }
-
     // return the nth term
-    return recentTerms[2];
+    return fibonacciNumber(nthTerm - 2) + fibonacciNumber(nthTerm - 1);
 }
 
